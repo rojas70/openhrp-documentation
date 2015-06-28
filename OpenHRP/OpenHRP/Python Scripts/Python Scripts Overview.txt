@@ -1,0 +1,28 @@
+I still have not been able to solve a script that could stop and start a simulation. I have made some progress but need some extra help. I am attaching two scripts, they have similar behavior. The simulation starts, it stops, it asks the user to click okay, then it restarts at the same place where it might have stopped in the first loop. 
+
+I can't figure out a way to make it to re-start a completely new assembly example. 
+
+We are still having lots of trouble coming up with a python script that could automatically get the simulation to start, stop, and re-initialize automatically.
+
+Let me share some notes based on the attached script:
+Some notes:
+The initial loop runs fine.
+After we call force.stop() the simulation does stop. 
+The for loop works and we can call start.simulation(0) again.
+However, the simulation starts from wherever it left off and not from the beginning.
+Here are a few notes for some functions:
+sim.startSimulation(0) 
+if sim.stopSimulation() is called, this call allows the simulation to start again but it does not reset the simulation, it just keeps going from wherever it left off.
+sim.startSimulation(1)
+This is different. When the function is called it will bring up a window that ask if we want to reset the logger and the controller. 
+We call this function after running seq.start(), log.start(), and force.start(). If so, we can loop one time without errors, but the second loop we get a corba error as seen in the attached file.
+After pressing okay, we are getting some corba errors, may need to reset some calls appropriately. 
+sim.stopSimulation()
+When it runs the first time, it brings up a window saying the simulation has stopped. However, if called again, no windows shows up again. This is so, even if sim.startSimulation(0) is used.
+force.start()
+Starts the actual force controller. It can be stopped with force.stop() and started again from where it left off by calling force.start() again. This can be done indefinitely. This does not stop the simulation
+sim.waitStopSimulation()
+Bring Simulation to a pause. Not sure how to get it going again. sim.StartSimulation(1) won't get it going again.
+If press the "Stop Script" button and simstartSimulation(0) the simulation starts where it left off in the previous iteration.
+sim.stopSimulation()
+# Stop the simulation completely. Brings up "Simulation Finished Window"

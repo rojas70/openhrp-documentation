@@ -1,0 +1,8 @@
+Yes. I meant to say, hierarchical clustering may be something for us to purse. First identifiying if it belongs to an exemplar family, and later if it belongs to 1 deviation, 2 deviations, or 3 deviations.
+
+Another thought may also be: currently we are trying to guess if something belongs to the class with 1 deviation or 2 deviations or 3 deviations. Perhaps we could break down x-deviation into buckets or bins: 
+* 7.5mm-8mm = bin # 1
+* 8mm-8.5mm = bin # 2
+
+And so forth. This would then allow us to not look at just deviations but fix an exemplar value to a distance position.
+
